@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vuejs</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+  <div id="app">
+    <h1 aria-level="1" role="heading"><a :href="lien_salut">{{ title }}</a></h1>
+
+  </div>
+  <ul>
+    <li v-for="(member, k) in family" :key="member.name">{{ key }} - {{ member.name }}</li>
+  </ul>
+<script>
+  new Vue({
+    el: "#app",
+    data: {
+      title: "Salut tout le monde",
+      lien_salut: "http://www.google.be",
+      show: false,
+      family: {
+        brother: {name : 'Damien'},
+        sister: {name: 'Véronique'},
+        vdog: {name:'Toby'}
+      }
+    }
+  })
+
+</script>
+</body>
+</html>
