@@ -13,7 +13,7 @@
     </ul>
     <input type="text" v-model="input_content">
     <p v-show="input_content">{{ input_content }}</p>
-    <button @click="input_content = ''" v-text="`Remise à zéro`"></button>
+    <button @click="reset_input()" v-text="`Remise à zéro`"></button>
   </div>
 
 <script>
@@ -29,6 +29,11 @@
         vdog: {name:'Toby'}
       },
       input_content: "test"
+    },
+    methods:{
+      reset_input(){
+        this.input_content = ''
+      }
     }
   })
 
