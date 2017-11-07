@@ -7,42 +7,14 @@
 </head>
 <body>
   <div id="app">
-    <h1 aria-level="1" role="heading"><a :href="lien_salut">{{ title }}</a></h1>
-    <ul>
-      <li v-for="(member, key) in family" :key="member.name">{{ key }} - {{ member.name }}</li>
-    </ul>
-    <input type="text" v-model="input_content">
-    <p v-show="input_content">{{ input_content }}</p>
-    <p v-show="input_content">{{ reversedInputContent }}</p>
-    <button @click="reset_input('', $event)" v-text="`Remise à zéro`"></button>
+    <page-title></page-title>
   </div>
-
 <script>
+  Vue.component('pageTitle',{
+    template:`<h1>Le titre de ma page</h1>`
+  })
   new Vue({
     el: "#app",
-    data: {
-      title: "Salut tout le monde",
-      lien_salut: "http://www.google.be",
-      show: false,
-      family: {
-        brother: {name : 'Damien'},
-        sister: {name: 'Véronique'},
-        vdog: {name:'Toby'}
-      },
-      input_content: "test"
-    },
-    methods:{
-      reset_input(resetValue, event){
-        console.log(event.clientX)
-        this.input_content = resetValue
-      }
-    },
-    computed:{
-      reversedInputContent(){
-        return this.input_content.split('').reverse().join('')
-      }
-    }
-
   })
 
 </script>
