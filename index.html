@@ -10,13 +10,18 @@
     <page-title></page-title>
   </div>
 <script>
-  const child = {
-    template: `<h1>Le titre de ma page</h1>`
-  }
+
   new Vue({
     el: "#app",
     components: {
-      pageTitle: child
+      pageTitle: {
+        template: `<h1>{{ title }}</h1>`,
+        data(){
+          return {
+            title: 'Salut tout le monde'
+          }
+        }
+      }
     }
   })
 
