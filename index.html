@@ -12,7 +12,8 @@
       <li v-for="(member, key) in family" :key="member.name">{{ key }} - {{ member.name }}</li>
     </ul>
     <input type="text" v-model="input_content">
-    <p>{{ input_content }}</p>
+    <p v-show="input_content">{{ input_content }}</p>
+    <button @click="input_content = ''" v-text="`Remise à zéro`"></button>
   </div>
 
 <script>
