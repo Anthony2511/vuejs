@@ -13,7 +13,8 @@
     </ul>
     <input type="text" v-model="input_content">
     <p v-show="input_content">{{ input_content }}</p>
-    <button @click="reset_input()" v-text="`Remise à zéro`"></button>
+    <p v-show="input_content">{{ reversedInputContent }}</p>
+    <button @click="reset_input('', $event)" v-text="`Remise à zéro`"></button>
   </div>
 
 <script>
@@ -31,10 +32,17 @@
       input_content: "test"
     },
     methods:{
-      reset_input(){
-        this.input_content = ''
+      reset_input(resetValue, event){
+        console.log(event.clientX)
+        this.input_content = resetValue
+      }
+    },
+    computed:{
+      reversedInputContent(){
+        return this.input_content.split('').reverse().join('')
       }
     }
+
   })
 
 </script>
