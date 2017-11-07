@@ -10,11 +10,14 @@
     <page-title></page-title>
   </div>
 <script>
-  Vue.component('pageTitle',{
-    template:`<h1>Le titre de ma page</h1>`
-  })
+  const child = {
+    template: `<h1>Le titre de ma page</h1>`
+  }
   new Vue({
     el: "#app",
+    components: {
+      pageTitle: child
+    }
   })
 
 </script>
